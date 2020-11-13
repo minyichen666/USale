@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Product")
 public class Product {
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")   

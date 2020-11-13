@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductExample {
-    protected String orderByClause;
+	protected String orderByClause;
 
     protected boolean distinct;
 
@@ -375,62 +375,62 @@ public class ProductExample {
         }
 
         public Criteria andPriceIsNull() {
-            addCriterion("Price is null");
+            addCriterion("price is null");
             return (Criteria) this;
         }
 
         public Criteria andPriceIsNotNull() {
-            addCriterion("Price is not null");
+            addCriterion("price is not null");
             return (Criteria) this;
         }
 
         public Criteria andPriceEqualTo(Double value) {
-            addCriterion("Price =", value, "price");
+            addCriterion("price =", value, "price");
             return (Criteria) this;
         }
 
         public Criteria andPriceNotEqualTo(Double value) {
-            addCriterion("Price <>", value, "price");
+            addCriterion("price <>", value, "price");
             return (Criteria) this;
         }
 
         public Criteria andPriceGreaterThan(Double value) {
-            addCriterion("Price >", value, "price");
+            addCriterion("price >", value, "price");
             return (Criteria) this;
         }
 
         public Criteria andPriceGreaterThanOrEqualTo(Double value) {
-            addCriterion("Price >=", value, "price");
+            addCriterion("price >=", value, "price");
             return (Criteria) this;
         }
 
         public Criteria andPriceLessThan(Double value) {
-            addCriterion("Price <", value, "price");
+            addCriterion("price <", value, "price");
             return (Criteria) this;
         }
 
         public Criteria andPriceLessThanOrEqualTo(Double value) {
-            addCriterion("Price <=", value, "price");
+            addCriterion("price <=", value, "price");
             return (Criteria) this;
         }
 
         public Criteria andPriceIn(List<Double> values) {
-            addCriterion("Price in", values, "price");
+            addCriterion("price in", values, "price");
             return (Criteria) this;
         }
 
         public Criteria andPriceNotIn(List<Double> values) {
-            addCriterion("Price not in", values, "price");
+            addCriterion("price not in", values, "price");
             return (Criteria) this;
         }
 
         public Criteria andPriceBetween(Double value1, Double value2) {
-            addCriterion("Price between", value1, value2, "price");
+            addCriterion("price between", value1, value2, "price");
             return (Criteria) this;
         }
 
         public Criteria andPriceNotBetween(Double value1, Double value2) {
-            addCriterion("Price not between", value1, value2, "price");
+            addCriterion("price not between", value1, value2, "price");
             return (Criteria) this;
         }
 

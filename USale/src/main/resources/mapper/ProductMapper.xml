@@ -7,7 +7,7 @@
       <arg column="category" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="descr" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="Price" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="price" javaType="java.lang.Double" jdbcType="DOUBLE" />
       <arg column="user_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
     </constructor>
   </resultMap>
@@ -70,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, category, name, descr, Price, user_id
+    id, category, name, descr, price, user_id
   </sql>
   <select id="selectByExample" parameterType="com.L.USale.entity.ProductExample" resultMap="BaseResultMap">
     select
@@ -78,7 +78,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from usale..product
+    from usale.product
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -89,29 +89,29 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from usale..product
+    from usale.product
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from usale..product
+    delete from usale.product
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.L.USale.entity.ProductExample">
-    delete from usale..product
+    delete from usale.product
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.L.USale.entity.Product">
-    insert into usale..product (id, category, name, 
-      descr, Price, user_id
+    insert into usale.product (id, category, name, 
+      descr, price, user_id
       )
     values (#{id,jdbcType=INTEGER}, #{category,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{descr,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, #{userId,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.L.USale.entity.Product">
-    insert into usale..product
+    insert into usale.product
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -126,7 +126,7 @@
         descr,
       </if>
       <if test="price != null">
-        Price,
+        price,
       </if>
       <if test="userId != null">
         user_id,
@@ -154,13 +154,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.L.USale.entity.ProductExample" resultType="java.lang.Long">
-    select count(*) from usale..product
+    select count(*) from usale.product
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update usale..product
+    update usale.product
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
@@ -175,7 +175,7 @@
         descr = #{record.descr,jdbcType=VARCHAR},
       </if>
       <if test="record.price != null">
-        Price = #{record.price,jdbcType=DOUBLE},
+        price = #{record.price,jdbcType=DOUBLE},
       </if>
       <if test="record.userId != null">
         user_id = #{record.userId,jdbcType=INTEGER},
@@ -186,19 +186,19 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update usale..product
+    update usale.product
     set id = #{record.id,jdbcType=INTEGER},
       category = #{record.category,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
       descr = #{record.descr,jdbcType=VARCHAR},
-      Price = #{record.price,jdbcType=DOUBLE},
+      price = #{record.price,jdbcType=DOUBLE},
       user_id = #{record.userId,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.L.USale.entity.Product">
-    update usale..product
+    update usale.product
     <set>
       <if test="category != null">
         category = #{category,jdbcType=VARCHAR},
@@ -210,7 +210,7 @@
         descr = #{descr,jdbcType=VARCHAR},
       </if>
       <if test="price != null">
-        Price = #{price,jdbcType=DOUBLE},
+        price = #{price,jdbcType=DOUBLE},
       </if>
       <if test="userId != null">
         user_id = #{userId,jdbcType=INTEGER},
@@ -219,11 +219,11 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.L.USale.entity.Product">
-    update usale..product
+    update usale.product
     set category = #{category,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
       descr = #{descr,jdbcType=VARCHAR},
-      Price = #{price,jdbcType=DOUBLE},
+      price = #{price,jdbcType=DOUBLE},
       user_id = #{userId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>

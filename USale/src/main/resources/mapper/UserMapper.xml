@@ -78,7 +78,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from usale..user
+    from usale.user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -89,21 +89,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from usale..user
+    from usale.user
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from usale..user
+    delete from usale.user
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.L.USale.entity.UserExample">
-    delete from usale..user
+    delete from usale.user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.L.USale.entity.User">
-    insert into usale..user (id, user_name, password, 
+    insert into usale.user (id, user_name, password, 
       phone_number, address, balance
       )
     values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
@@ -111,7 +111,7 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.L.USale.entity.User">
-    insert into usale..user
+    insert into usale.user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -154,13 +154,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.L.USale.entity.UserExample" resultType="java.lang.Long">
-    select count(*) from usale..user
+    select count(*) from usale.user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update usale..user
+    update usale.user
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
@@ -186,7 +186,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update usale..user
+    update usale.user
     set id = #{record.id,jdbcType=INTEGER},
       user_name = #{record.userName,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
@@ -198,7 +198,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.L.USale.entity.User">
-    update usale..user
+    update usale.user
     <set>
       <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
@@ -219,7 +219,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.L.USale.entity.User">
-    update usale..user
+    update usale.user
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       phone_number = #{phoneNumber,jdbcType=VARCHAR},

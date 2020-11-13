@@ -1,4 +1,4 @@
-package com.L.USale.services;
+package com.L.USale.service;
 
 public class UserServiceImpl {
 

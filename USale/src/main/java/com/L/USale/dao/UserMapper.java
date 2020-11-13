@@ -1,12 +1,13 @@
 package com.L.USale.dao;
 
-import com.L.USale.entity.User;
-import com.L.USale.entity.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import com.L.USale.entity.User;
+import com.L.USale.entity.UserExample;
+
 public interface UserMapper {
-    long countByExample(UserExample example);
+	long countByExample(UserExample example);
 
     int deleteByExample(UserExample example);
 

@@ -1,12 +1,13 @@
 package com.L.USale.dao;
 
-import com.L.USale.entity.Product;
-import com.L.USale.entity.ProductExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import com.L.USale.entity.Product;
+import com.L.USale.entity.ProductExample;
+
 public interface ProductMapper {
-    long countByExample(ProductExample example);
+	long countByExample(ProductExample example);
 
     int deleteByExample(ProductExample example);
 

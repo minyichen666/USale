@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserExample {
-    protected String orderByClause;
+	protected String orderByClause;
 
     protected boolean distinct;
 
