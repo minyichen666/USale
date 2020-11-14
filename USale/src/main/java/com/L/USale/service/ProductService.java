@@ -1,7 +1,6 @@
 package com.L.USale.service;
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import com.L.USale.entity.Product;
