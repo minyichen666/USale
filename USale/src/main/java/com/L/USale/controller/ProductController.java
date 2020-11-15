@@ -32,18 +32,33 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
-	public void updateProduct(@RequestBody Product product) {
-		productService.updateProduct(product);
+	public boolean updateProduct(@RequestBody Product product) {
+		try {
+			productService.updateProduct(product);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
 	}
 	
 	@RequestMapping(value = "create", method = RequestMethod.POST)
-	public void postProduct(@RequestBody Product product) {
-		 productService.createProduct(product);
+	public boolean postProduct(@RequestBody Product product) {
+		 try {
+			 productService.createProduct(product);
+			 return true;
+		 }catch(Exception e) {
+			 return false;
+		 }
 	}
 	
 	@RequestMapping(value = "delete", method = RequestMethod.DELETE)
-	public void deleteProduct(@RequestParam(name = "id", required=true) int id) {
-		 productService.deleteProduct(id);
+	public boolean deleteProduct(@RequestParam(name = "id", required=true) int id) {
+		try { 
+			productService.deleteProduct(id);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
 	}
 	
 	
