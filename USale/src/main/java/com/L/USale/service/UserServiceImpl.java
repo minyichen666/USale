@@ -16,12 +16,15 @@ public class UserServiceImpl implements UserService {
 	UserMapper userMapper;
 	
 	@Override
-	public List<User> searchUser(String userName, String password) {
+	public boolean searchUser(String userName, String password) {
 		UserExample example = new UserExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andUserNameEqualTo(userName);
 		criteria.andPasswordEqualTo(password);
-		return userMapper.selectByExample(example);
+		if (userMapper.selectByExample(example).size() == 0) {
+			return false;
+		}
+		return true;
 	}
 	
 	@Override
@@ -46,4 +49,5 @@ public class UserServiceImpl implements UserService {
 		criteria.andUserNameEqualTo(userName);
 		return userMapper.selectByExample(example);
 	}
+	
 }
