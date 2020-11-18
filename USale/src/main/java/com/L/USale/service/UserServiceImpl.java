@@ -38,4 +38,12 @@ public class UserServiceImpl implements UserService {
 	public void deleteUser(int id) {
 		userMapper.deleteByPrimaryKey(id);
 	}
+	
+	@Override
+	public List<User> findByUsername(String userName){
+		UserExample example = new UserExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andUserNameEqualTo(userName);
+		return userMapper.selectByExample(example);
+	}
 }

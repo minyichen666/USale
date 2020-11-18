@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.L.USale.entity.User;
 import com.L.USale.service.UserService;
+import com.L.USale.validator.UserValidator;
 
 @RestController
 @RequestMapping("/user")
@@ -19,6 +20,9 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+    @Autowired
+    UserValidator userValidator;	
 	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	@ResponseBody
@@ -40,8 +44,11 @@ public class UserController {
 	@RequestMapping(value = "create", method = RequestMethod.POST)
 	public boolean postUser(@RequestBody User user) {
 		try {
-			userService.createUser(user);
-			return true;
+			if (userValidator.validate(user)) {
+				userService.createUser(user);
+				return true;
+			}
+			return false;
 		}catch(Exception e) {
 			return false;
 		}
