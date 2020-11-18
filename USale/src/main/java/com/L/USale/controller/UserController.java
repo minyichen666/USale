@@ -3,6 +3,8 @@ package com.L.USale.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,7 +16,7 @@ import com.L.USale.entity.User;
 import com.L.USale.service.UserService;
 import com.L.USale.validator.UserValidator;
 
-@RestController
+@Controller
 @RequestMapping("/user")
 public class UserController {
 	
@@ -22,7 +24,13 @@ public class UserController {
 	UserService userService;
 	
     @Autowired
-    UserValidator userValidator;	
+    UserValidator userValidator;
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String welcome(ModelMap model) {
+        model.put("message", "hello");
+        return "welcome";
+    }
 	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	@ResponseBody
