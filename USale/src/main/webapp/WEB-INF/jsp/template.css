@@ -1,0 +1,50 @@
+.navbar{
+  background-color: black;
+	background-image: linear-gradient(to right, #6D0101, #990001);
+}
+.nav-item{
+  color: #FFCC00;
+  font-family: 'Alata', sans-serif;
+}
+
+.nav-brand-icon{
+  color: #FFCC00;
+  font-size:1.5em;
+  margin-left: 40px;
+  font-family: 'Playfair Display';
+}
+
+.nav-brand{
+  color: #FFCC00;
+  font-size:1.5em;
+  font-family: 'Playfair Display';
+}
+
+body{
+  background-color:#6D0101;
+  background-image: linear-gradient(to right, #6D0101, #990001);
+}
+.placeholder{
+  opacity:0;
+}
+#background-text{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+  heght: 100%;
+  position:fixed;
+  color:rgba(255, 204, 0, 0.2);
+  font-family: 'Playfair Display';
+  letter-spacing: -1.015em ;
+  font-style: italic;
+  text-align: center;
+  margin:auto;
+  z-index: -1;
+}
+.navbar{
+  position:fixed;
+  width: 100%;
+}
