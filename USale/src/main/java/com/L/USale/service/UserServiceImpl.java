@@ -49,5 +49,4 @@ public class UserServiceImpl implements UserService {
 		criteria.andUserNameEqualTo(userName);
 		return userMapper.selectByExample(example);
 	}
-	
 }

@@ -1,12 +1,11 @@
 package com.L.USale.controller;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,9 +28,10 @@ public class UserController {
     @Autowired
     UserValidator userValidator;
 
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String welcome(Model model) {
-        model.addAttribute("message", "hello");
+    public String welcome(ModelMap model) {
+        model.put("message", "hello");
         return "welcome";
     }
 	
@@ -55,7 +55,7 @@ public class UserController {
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public String updateUser(@ModelAttribute("user") User user) {			
 		userService.updateUser(user);
-		return "redirect:/user/account";
+		return "account";
 	}
 	
 	@RequestMapping(value="/signup", method = RequestMethod.GET)
