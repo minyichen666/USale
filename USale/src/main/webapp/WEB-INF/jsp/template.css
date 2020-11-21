@@ -1,6 +1,7 @@
 .navbar{
   background-color: black;
 	background-image: linear-gradient(to right, #6D0101, #990001);
+  z-index: 9999;
 }
 .nav-item{
   color: #FFCC00;
@@ -11,7 +12,6 @@
   color: #FFCC00;
   font-size:1.5em;
   margin-left: 40px;
-  font-family: 'Playfair Display', serif;
 }
 
 .nav-brand{
@@ -48,3 +48,36 @@ body{
   position:fixed;
   width: 100%;
 }
+
+
+
+
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: rgba(255, 204, 0, 1);
+  font-style: italic;
+}
+
+
+
+.searchbar {
+  margin-top: auto;
+  display: block;
+    width: 80%;
+    position: fixed;
+    top: 46.3%;
+    bottom: 50%;
+    left: 10%;
+    right: 10%;
+}
+
+.bar{
+   background-color: #840101;
+   background-image: linear-gradient(to left, #840101, #990001);
+   border-color: rgba(255, 204, 0, 1);
+   border-radius: 0;
+   font-family: Playfair Display, serif;
+   opacity: 0.8;
+  }
+
