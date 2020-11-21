@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.L.USale.entity.Product;
 import com.L.USale.entity.User;
 import com.L.USale.entity.UserLogin;
+import com.L.USale.entity.UserLoginInfo;
+import com.L.USale.service.ProductService;
 import com.L.USale.service.UserService;
 import com.L.USale.validator.UserValidator;
 
@@ -25,9 +28,14 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	ProductService productService;
+	
     @Autowired
     UserValidator userValidator;
-
+    
+    @Autowired
+    UserLoginInfo session;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(ModelMap model) {
@@ -44,8 +52,9 @@ public class UserController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String searchUser(@ModelAttribute("userLogin") UserLogin userLogin, Model model) {
-		boolean found = userService.searchUser(userLogin.getUserName(), userLogin.getPassword());
-		if(found) {
+		User user = userService.searchUser(userLogin.getUserName(), userLogin.getPassword());
+		if(null != user) {
+			session.setUser(user);
 			return "homepage";
 		}
 		model.addAttribute("message", "username or password incorrect.");
@@ -83,4 +92,34 @@ public class UserController {
 			userService.deleteUser(id);
 			return "login";
 	}	
+	
+	@RequestMapping(value = "/update-product", method = RequestMethod.PUT)
+	public boolean updateProduct(@RequestBody Product product) {
+		try {
+			productService.updateProduct(product);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+	}
+	
+	@RequestMapping(value = "create-product", method = RequestMethod.POST)
+	public boolean postProduct(@RequestBody Product product) {
+		 try {
+			 productService.createProduct(product);
+			 return true;
+		 }catch(Exception e) {
+			 return false;
+		 }
+	}
+	
+	@RequestMapping(value = "delete-product", method = RequestMethod.DELETE)
+	public boolean deleteProduct(@RequestParam(name = "id", required=true) int id) {
+		try { 
+			productService.deleteProduct(id);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+	}
 }

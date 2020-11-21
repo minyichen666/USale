@@ -8,7 +8,7 @@ import com.L.USale.entity.Product;
 import com.L.USale.entity.User;
 @Service
 public interface UserService {
-	boolean searchUser(String userName, String password);
+	User searchUser(String userName, String password);
 	
 	void updateUser(User user);
 	

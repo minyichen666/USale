@@ -31,38 +31,7 @@ public class ProductController {
 		return products;
 	}
 	
-	@RequestMapping(value = "/update", method = RequestMethod.PUT)
-	public boolean updateProduct(@RequestBody Product product) {
-		try {
-			productService.updateProduct(product);
-			return true;
-		}catch(Exception e) {
-			return false;
-		}
-	}
 	
-	@RequestMapping(value = "create", method = RequestMethod.POST)
-	public boolean postProduct(@RequestBody Product product) {
-		 try {
-			 productService.createProduct(product);
-			 return true;
-		 }catch(Exception e) {
-			 return false;
-		 }
-	}
-	
-	@RequestMapping(value = "delete", method = RequestMethod.DELETE)
-	public boolean deleteProduct(@RequestParam(name = "id", required=true) int id) {
-		try { 
-			productService.deleteProduct(id);
-			return true;
-		}catch(Exception e) {
-			return false;
-		}
-	}
-	
-	
-	
-	
+
 	
 }

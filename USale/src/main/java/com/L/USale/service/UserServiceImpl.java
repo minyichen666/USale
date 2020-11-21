@@ -16,15 +16,16 @@ public class UserServiceImpl implements UserService {
 	UserMapper userMapper;
 	
 	@Override
-	public boolean searchUser(String userName, String password) {
+	public User searchUser(String userName, String password) {
 		UserExample example = new UserExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andUserNameEqualTo(userName);
 		criteria.andPasswordEqualTo(password);
-		if (userMapper.selectByExample(example).size() == 0) {
-			return false;
+		List<User> users = userMapper.selectByExample(example);
+		if (users.size() == 0) {
+			return null;
 		}
-		return true;
+		return users.get(0);
 	}
 	
 	@Override
