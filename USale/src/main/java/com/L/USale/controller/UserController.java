@@ -61,6 +61,13 @@ public class UserController {
 		return "login";
 	}
 	
+	@RequestMapping(value="/update", method = RequestMethod.GET)
+	public String updateUser(Model model) {
+		User user = new User();
+		model.addAttribute("user", user);
+		return "update";
+	}	
+	
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public String updateUser(@ModelAttribute("user") User user) {			
 		userService.updateUser(user);
@@ -76,50 +83,71 @@ public class UserController {
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String createUser(@ModelAttribute("user") User user, Model model) {
-			if (userValidator.validate(user)) {
-				userService.createUser(user);
-				model.addAttribute("message", "Sign Up Successfully!");
-				return "login";
+			if (user.getId() != null) {
+				if (userValidator.validate(user)) {
+					userService.createUser(user);
+					model.addAttribute("message", "Sign Up Successfully!");
+					return "login";
+				}
+				else {
+					model.addAttribute("message", "Username is taken. Try another one.");
+					return "signup";					
+				}
 			}
 			else {
-				model.addAttribute("message", "Username is taken. Try another one.");
+				model.addAttribute("message", "User signup failed! Check your form.");
 				return "signup";
 			}
-	}	
+	}
 	
-	@RequestMapping(value = "delete", method = RequestMethod.DELETE)
-	public String deleteUser(@RequestParam(name = "id", required=true) int id) {
-			userService.deleteUser(id);
-			return "login";
+	@RequestMapping(value = "/account", method = RequestMethod.GET)
+	public String displayInfo(Model model) {
+		if (session.getUser() != null) {
+			model.addAttribute("Info", session.getUser());
+			return "account";
+		}
+		return "login";
+	}
+	
+	@RequestMapping(value = "/list-product", method = RequestMethod.GET)
+	public String listProduct(Model model) {
+		if (session.getUser() != null) {
+			List<Product> productList = productService.listProduct(session.getUser().getId());
+			model.addAttribute("productList", productList);
+			return "list-product";
+		}
+		return "login";
+	}
+	
+	@RequestMapping(value = "/update-product", method = RequestMethod.GET)
+	public String updateProduct(Model model) {
+		Product product = new Product();
+		model.addAttribute("product", product);
+		return "update-product";
 	}	
 	
 	@RequestMapping(value = "/update-product", method = RequestMethod.PUT)
-	public boolean updateProduct(@RequestBody Product product) {
-		try {
+	public String updateProduct(@ModelAttribute("product") Product product) {
 			productService.updateProduct(product);
-			return true;
-		}catch(Exception e) {
-			return false;
-		}
+			return "list-product";
+	}
+	
+	@RequestMapping(value = "create-product", method = RequestMethod.GET)
+	public String addProduct(Model model) {
+		Product product = new Product();
+		model.addAttribute("product", product);
+		return "create-product";
 	}
 	
 	@RequestMapping(value = "create-product", method = RequestMethod.POST)
-	public boolean postProduct(@RequestBody Product product) {
-		 try {
+	public String addProduct(@ModelAttribute("product") Product product) {
 			 productService.createProduct(product);
-			 return true;
-		 }catch(Exception e) {
-			 return false;
-		 }
+			 return "list-product";
 	}
 	
 	@RequestMapping(value = "delete-product", method = RequestMethod.DELETE)
-	public boolean deleteProduct(@RequestParam(name = "id", required=true) int id) {
-		try { 
+	public String deleteProduct(@RequestParam(name = "id", required=true) int id) {
 			productService.deleteProduct(id);
-			return true;
-		}catch(Exception e) {
-			return false;
-		}
+			return "list-product";
 	}
 }

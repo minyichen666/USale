@@ -9,6 +9,8 @@ public interface ProductService {
 	
 	List<Product> searchProduct(String name, String category);
 	
+	public List<Product> listProduct(int id);
+	
 	void updateProduct(Product product);
 	
 	void createProduct(Product product);

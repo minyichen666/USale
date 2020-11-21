@@ -31,6 +31,14 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
+	public List<Product> listProduct(int id){
+		ProductExample example = new ProductExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andUserIdEqualTo(id);
+		return productMapper.selectByExample(example);
+	}
+	
+	@Override
 	public void updateProduct(Product product) {
 		productMapper.updateByPrimaryKey(product);
 	}
