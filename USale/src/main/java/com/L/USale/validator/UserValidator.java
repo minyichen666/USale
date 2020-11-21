@@ -12,7 +12,7 @@ public class UserValidator{
 	UserService userService;
 
     public boolean validate(User user) {
-    	if (userService.findByUsername(user.getUserName()).size() == 0) {
+    	if (userService.findByUserName(user.getUserName()).size() == 0) {
     		return true;
     	}
     	return false;
