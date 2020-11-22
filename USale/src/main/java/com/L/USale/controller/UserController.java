@@ -40,6 +40,8 @@ public class UserController {
     
     @Autowired
     UserLoginInfo session;
+    
+    public static boolean authenticated = false;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(ModelMap model) {
@@ -49,7 +51,6 @@ public class UserController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String searchUser(Model model) {
-		System.out.println("123");
 		UserLogin userLogin = new UserLogin();
 		model.addAttribute("userLogin", userLogin);
 		return "login";
@@ -57,10 +58,11 @@ public class UserController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String searchUser(@ModelAttribute("userLogin") UserLogin userLogin) {
-		System.out.println("1");
 		User user = userService.searchUser(userLogin.getUserName(), userLogin.getPassword());
 		if(null != user) {
 			session.setUser(new UserModel(user));
+			System.out.println(session.getUser().getUserName());
+			authenticated = true;
 			return "welcome";
 		}
 		return "login";
