@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -26,9 +27,10 @@ public class ProductController {
 	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Product> listProduct(@RequestParam(name = "name", required=false) String name, @RequestParam(name = "category", required=false) String category) {
+	public String listProduct(@RequestParam(name = "name", required=false) String name, @RequestParam(name = "category", required=false) String category, Model model) {
 		List<Product> products = productService.searchProduct(name, category);
-		return products;
+		model.addAttribute("products", products);
+		return "search";
 	}
 	
 	
