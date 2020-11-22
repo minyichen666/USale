@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,17 +13,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.L.USale.entity.Product;
 import com.L.USale.entity.User;
 import com.L.USale.entity.UserLogin;
 import com.L.USale.entity.UserLoginInfo;
+import com.L.USale.model.UserModel;
 import com.L.USale.service.ProductService;
 import com.L.USale.service.UserService;
 import com.L.USale.validator.UserValidator;
 
 @Controller
 @RequestMapping("/user")
+@Scope("session")
 public class UserController {
 	
 	@Autowired
@@ -44,21 +48,26 @@ public class UserController {
     }
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String searchUser(Model model) {
+	public ModelAndView searchUser() {
 		UserLogin userLogin = new UserLogin();
-		model.addAttribute("userLogin", userLogin);
-		return "login";
+		ModelAndView mv = new ModelAndView("login");
+		mv.addObject("userLogin", userLogin);
+		return mv;
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String searchUser(@ModelAttribute("userLogin") UserLogin userLogin, Model model) {
+	public ModelAndView searchUser(@ModelAttribute("userLogin") UserLogin userLogin) {
 		User user = userService.searchUser(userLogin.getUserName(), userLogin.getPassword());
+		System.out.println("123");
 		if(null != user) {
-			session.setUser(user);
-			return "homepage";
+			session.setUser(new UserModel(user));
+			ModelAndView mv = new ModelAndView("welcome");
+			mv.addObject("user", session);
+			return mv;
 		}
-		model.addAttribute("message", "username or password incorrect.");
-		return "login";
+		ModelAndView mv = new ModelAndView("login");
+		mv.addObject("error", "invalid password");
+		return mv;
 	}
 	
 	@RequestMapping(value="/update", method = RequestMethod.GET)

@@ -1,23 +1,28 @@
 package com.L.USale.entity;
 
+import javax.persistence.Entity;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import com.L.USale.model.UserModel;
 
 @Component
 @Scope("session")
 public class UserLoginInfo {
-
-	User user;
 	
-	public UserLoginInfo(User user) {
-		this.user = user;
+	UserModel user;
+	
+	public UserLoginInfo() {
+		
 	}
 
-	public User getUser() {
+	public UserModel getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(UserModel user) {
 		this.user = user;
 	}
 	

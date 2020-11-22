@@ -1,5 +1,8 @@
 package com.L.USale.entity;
 
+import javax.persistence.Entity;
+
+@Entity
 public class UserLogin {
 	private String userName;
 	

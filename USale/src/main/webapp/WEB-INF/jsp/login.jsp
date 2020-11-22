@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html>
+<!-- <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -98,20 +99,30 @@
 			<div class="row">
 				<hr class = "placeholder col-12">
 				<hr class = "placeholder col-12">
-				<!--                      Add your code HERE                               -->
 				<div class = "text-center col-12" id = "title"> <h2>log in.</h2> </div>
 				<form>
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="username..." id = "input-bar">
+						<input type="text" class="form-control" placeholder="username..." id = "input-bar" value = "">
 					</div>
 					<div class="input-group mb-3">
 						<input type="password" class="form-control" placeholder="password..." id = "input-bar">
 					</div>
 					<button type="submit" class = "text-center" id = "title"> <h2>yes.</h2> </button>
 				</form>
-				<!--                      Add your code ABOVE                              -->
+			    
+	        <div th:if="${param.error}">
+	            Invalid username and password.
+	        </div>
+	        <div th:if="${param.logout}">
+	            You have been logged out.
+	        </div>
+	        <form th:action="@{/user/login}" method="post">
+	            <div><label> User Name : <input type="text" name="username"/> </label></div>
+	            <div><label> Password: <input type="password" name="password"/> </label></div>
+	            <div><input type="submit" value="Sign In"/></div>
+	        </form>
 			</div>
-		</div> <!-- .container -->
+		</div> 
 		
 		<footer class="page-footer font-small blue">
 			<div class="footer-copyright text-center py-3">© 2020 Copyright:
@@ -119,4 +130,30 @@
 			</div>
 		</footer>
 	</body>
+</html>-->
+
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Add Employee</title>
+</head>
+<body>
+	<h3 style="color: red;">Add New Employee</h3>
+
+	<div id="addEmployee">
+		<form:form action="/user/login" method="post"
+			modelAttribute="userLogin">
+			<p>
+				<label>User Name</label>
+				<form:input path="userName" />
+			</p>
+			<p>
+				<label>Password</label>
+				<form:input path="password" />
+			</p>
+			<input type="SUBMIT" value="Submit" />
+		</form:form>
+	</div>
+</body>
 </html>
