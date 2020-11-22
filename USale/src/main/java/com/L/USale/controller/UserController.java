@@ -48,26 +48,22 @@ public class UserController {
     }
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView searchUser() {
+	public String searchUser(Model model) {
+		System.out.println("123");
 		UserLogin userLogin = new UserLogin();
-		ModelAndView mv = new ModelAndView("login");
-		mv.addObject("userLogin", userLogin);
-		return mv;
+		model.addAttribute("userLogin", userLogin);
+		return "login";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView searchUser(@ModelAttribute("userLogin") UserLogin userLogin) {
+	public String searchUser(@ModelAttribute("userLogin") UserLogin userLogin) {
+		System.out.println("1");
 		User user = userService.searchUser(userLogin.getUserName(), userLogin.getPassword());
-		System.out.println("123");
 		if(null != user) {
 			session.setUser(new UserModel(user));
-			ModelAndView mv = new ModelAndView("welcome");
-			mv.addObject("user", session);
-			return mv;
+			return "welcome";
 		}
-		ModelAndView mv = new ModelAndView("login");
-		mv.addObject("error", "invalid password");
-		return mv;
+		return "login";
 	}
 	
 	@RequestMapping(value="/update", method = RequestMethod.GET)
