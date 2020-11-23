@@ -71,6 +71,10 @@
 	{
 	    padding:0 15px;
 	}
+	.blankRow{
+		height: 15px !important;
+		
+	}
 	<%@ include file = "template.css" %>
 	</style>
 </head>
@@ -96,7 +100,12 @@
 			<br></br>
 			<div class = "tasks col-7 text-center" id="info">
     		<table style="color: #FFCC00;" className="padding-table-columns">
+    		<tr class="blankRow"> <td colspan="1"></td></tr>
+    		<th><tr><td>NAME<br></td><td>CATEGORY<br></td><td>DESCRIPTION<br></td><td>PRICE<br></td></tr></th>
     		<tbody>
+    		<tr><td colspan="5"> <hr/></td></tr>
+    		<!-- tr class="blankRow"> <td colspan="1"></td></tr> -->
+    		
     			<c:forEach items="${products}" var="product" >
 		   			<!-- <div class = "picture col-6 text-left">
 		   				<img style="max-height: 100%; max-width: 100%;" src="1.png" alt="IMAGE HERE">
