@@ -45,37 +45,18 @@
 				}
 
 		}
+		.hidden{
+			display: none;
+		}
+		.btn{
+			background-color:#FFCC00;
+		}
 
-
+	<%@ include file = "template.css" %>
 	</style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg">
-	  <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
-      <span class="navbar-toggler-icon"> <p class="nav-brand-icon">   USale.</p></span>
-	  </button>
-
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-auto container">
-	      <li class="nav-item active col-lg-2 text-left">
-	        <a class="nav-link" href="">HOME</a>
-	      </li>
-	      <li class="nav-item col-lg-2 text-left">
-	        <a class="nav-link" href="">ABOUT US</a>
-	      </li>
-	      <li class="nav-brand col-lg-4 text-center">
-	        <a class="nav-link " href="">USale.</a>
-	      </li>
-        <li class="nav-item col-lg-1 text-right">
-	        <a class="nav-link" href="">ACCOUNT</a>
-	      </li>
-        <li class="nav-item col-lg-3 text-right">
-	        <a class="nav-link" href="">ITEM MANAGEMENT</a>
-	      </li>
-	    </ul>
-	  </div>
-	</nav>
+<%@ include file = "navbar.jsp" %>
 
   <div id="background-text">
     <h1>USale.</h1>
@@ -87,44 +68,48 @@
 			<hr class = "placeholder col-12">
       <hr class = "placeholder col-12">
 	    <!--                      Add your code HERE                               -->
-
       <form:form action="/user/create-product" method="post" modelAttribute="product" id="form">
         <h2 class="col-12 text-center"><br></br>LIST AN ITEM.</h2>
 
 				<div class="form-group row">
 					<label for="label-id" class="col-4 text-right">NAME OF ITEM: </label>
 					<div class="col-8">
-						<form:input path="name" type="text" class="form-control" id = "title-id" value = ""/>
+						<form:input path="name" type="text" class="form-control" value = ""/>
 					</div>
           <br></br>
 					<label for="label-id" class="col-lg-4 text-right">PRICE: </label>
 					<div class="col-8">
-						<form:input path="price" type="text" class="form-control" id = "title-id" value = ""/>
+						<form:input path="price" type="text" class="form-control" value = ""/>
 					</div>
           <br></br>
           <label for="label-id" class="col-4 text-right">CATEGORY: </label>
 					<div class="col-8">
-						<form:input path="category" type="text" class="form-control" id = "title-id" value = ""/>
+						<%-- <form:input path="category" type="text" class="form-control"  value = ""/> --%>
+						<form:select path="category" name = "identity" class="form-control" id="identity"  value = "">
+					      <option selected value="lifestyle" >lifestyle</option>
+					      <option value="education">education</option>  
+					      <option value="entertainment">entertainment</option>  
+					      <option value="business">business</option>  
+					      <option value="others">others</option>  
+					     </form:select>
 					</div>
           <br></br>
 					<label for="label-id" class="col-4 text-right">Description:</label>
 					<div class="col-8">
-						<form:input path="descr" type="text" class="form-control" id = "title-id" value = ""/>
+						<form:input path="descr" type="text" class="form-control" value = ""/> 
+						
 					</div>
           <br></br>
-
+					<div class="col-8">
+						<form:input path="userId" type="text" class="form-control hidden"  value = "${user.getId()}"/>
+					</div>
+          <br></br>
+					<form:button type="submit" class = "text-center btn btn-primary col-sm-2" >Submit </form:button>
 				</div>
 
-				<div class="form-group row">
-					<div class="col-sm-3"></div>
-					<form:button type="submit" class = "text-center" class="btn btn-primary col-sm-3" id = "title">Submit </form:button>
-
-					<form:button type="reset" class="btn btn-light col-sm-3">Reset</form:button>
-					<div class="col-sm-3"></div>
-				</div>
 
 			</form:form>
-
+ 
 	</div>
 	</div> <!-- .container -->
 <%@ include file = "footer.jsp" %>
