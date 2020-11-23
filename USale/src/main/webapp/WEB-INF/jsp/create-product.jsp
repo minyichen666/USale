@@ -127,9 +127,9 @@
 
 	</div>
 	</div> <!-- .container -->
+<%@ include file = "footer.jsp" %>
 
-
-	<footer class="page-footer font-small blue">
+<!-- 	<footer class="page-footer font-small blue">
 
 	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
 	     <a id = "footlink" href=""> usale.com</a>
@@ -138,3 +138,4 @@
 	</footer>
 </body>
 </html>
+ -->
