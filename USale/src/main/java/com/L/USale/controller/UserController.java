@@ -147,7 +147,7 @@ public class UserController {
 			 return "my-products";
 	}
 	
-	@RequestMapping(value = "delete-product", method = RequestMethod.DELETE)
+	@RequestMapping(value = "delete-product", method = RequestMethod.GET)
 	public String deleteProduct(@RequestParam(name = "id", required=true) int id) {
 			productService.deleteProduct(id);
 			return "my-products";
