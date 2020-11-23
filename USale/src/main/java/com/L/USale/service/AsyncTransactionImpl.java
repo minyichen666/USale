@@ -18,7 +18,7 @@ public class AsyncTransactionImpl implements AsyncTransaction{
 	
 	
 	@Async("threadPoolTaskExecutor")
-	public boolean buyProduct(int userId, int productId){
+	public boolean buyProduct (int userId, int productId){
 		Product product = productMapper.selectByPrimaryKey(productId);
 		User buyer = userMapper.selectByPrimaryKey(userId);
 		User seller = userMapper.selectByPrimaryKey(product.getId());
