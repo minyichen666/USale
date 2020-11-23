@@ -87,6 +87,9 @@
       <h2 class="col-12 text-center"><br></br>ITEM MANAGEMENT</h2>
     		<h5 class = "list col-12"><hr></h5>
     		<div class = "tasks col-7 text-center" id="info">
+				<a class="btn btn-primary mx-auto" href="/user/create-product" role="button">LIST AN ITEM</a>
+			</div>
+    		<div class = "tasks col-7 text-center" id="info">
 	    	<form action="/product/search" class="form-inline">
 	    		<input type="text" placeholder="name" name="name">
 	    		<input type="text" placeholder="category" names="category">          
