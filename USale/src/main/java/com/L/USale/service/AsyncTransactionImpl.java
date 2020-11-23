@@ -20,7 +20,7 @@ public class AsyncTransactionImpl implements AsyncTransaction{
 	public synchronized void buyProduct (int userId, int productId) throws InterruptedException, Exception{
 		Product product = productMapper.selectByPrimaryKey(productId);
 		User buyer = userMapper.selectByPrimaryKey(userId);
-		User seller = userMapper.selectByPrimaryKey(product.getId());
+		User seller = userMapper.selectByPrimaryKey(product.getUserId());
 		double balance = buyer.getBalance();
 		double price = product.getPrice();
 		if(balance >= price) {
