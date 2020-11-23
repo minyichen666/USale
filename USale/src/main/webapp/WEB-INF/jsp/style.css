@@ -1,0 +1,122 @@
+h1{
+	width: 100%;
+	height: 100%;
+	font-size: 20em;
+	text-align:center;
+}
+a{
+    color: #FFCC00;
+}
+footer{
+	position:fixed;
+    width: 100%;
+	bottom:0;
+}
+#footlink{
+	font-size:1em;
+}
+h2{
+	color: #FFCC00;
+}
+h5{
+	color: #FFCC00;
+}
+hr{
+	border-bottom: 1px solid #FFCC00;
+}
+.hide {
+	display: none;
+}
+li{
+	color: #FFCC00;
+}
+.btn{
+	background-color: #FFCC00;
+	border: #FFCC00;
+}
+.container{
+	font-family: Alata;
+}
+@media(max-width: 767px){
+	h1{
+		font-size: 10em;
+	}
+}
+
+
+h1{
+				width: 100%;
+				height: 100%;
+				font-size: 20em;
+				text-align: center;
+			}
+			a{
+				color: #FFCC00;
+			}
+			footer{
+				position: fixed;
+				width: 100%;
+				bottom: 0;
+			}
+			#footlink{
+				font-size:1em;
+			}
+			@media(max-width: 767px){
+				h1{
+					font-size: 10em;
+				}
+			}
+			body{
+				background-color: #6D0101;
+				background-image: linear-gradient(to right, #6D0101, #990001);
+			}
+			.placeholder{
+				opacity: 0;
+			}
+			#background-text{
+				margin: 0;
+				position: absolute;
+				top: 50%;
+				-ms-transform: translateY(-50%);
+				transform: translateY(-50%);
+				width: 100%;
+				height: 50%;
+				position: fixed;
+				color: rgba(255, 204, 0, 0.1);
+				font-family: Playfair Display, serif;
+				letter-spacing: -1.015em;
+				font-style: italic;
+				align-items: center;
+				text-align: center;
+				margin: auto;
+				z-index: -1;
+			}
+			#title{
+				color: rgba(255, 204, 0, 1);
+				font-family: Playfair Display, serif;
+				margin: auto;
+				padding: 0;
+				border: none;
+				background: none;
+				/*-ms-transform: translateY(-50%);
+				transform: translateY(-50%);
+				-ms-transform: translateX(-50%);
+				transform: translateX(-50%);*/
+			}
+			#yes{
+				color: rgba(255, 204, 0, 1);
+				font-family: Playfair Display, serif;
+			}
+			#input-bar{
+				background-color: rgba(132, 1, 1, 0);
+				background-image: linear-gradient(to left, rgba(132, 1, 1, 0.8), rgba(153, 0, 1, 0.8));
+				border-color: rgba(255, 204, 0, 1);
+				border-radius: 0;
+				font-family: Playfair Display, serif;
+			}
+			.form-control::placeholder{
+				color: rgba(255, 204, 0, 1);
+			}
+			#form{
+				margin: auto;
+			}
