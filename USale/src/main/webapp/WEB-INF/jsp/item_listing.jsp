@@ -89,7 +89,7 @@
     		<div class = "tasks col-7 text-center" id="info">
 	    	<form action="/product/search" class="form-inline">
 	    		<input type="text" placeholder="name" name="name">
-	    		<input type="text" placeholder="category" names="category">          
+	    		<input type="text" placeholder="category" name="category">          
 			    <input type="submit" value="Submit">
 			</form>
 			</div>
