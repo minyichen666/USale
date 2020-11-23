@@ -102,9 +102,9 @@
 			<hr class = "placeholder col-12">
       <h2 class="col-12 text-center"><br></br>Art Piece #1</h2>
     		<h5 class = "list col-12"><hr></h5>
-	    	<form action="/product/search" method="get" class="form-inline">
-	    		<input type="text" name="name">
-	    		<input type="text" name="category">          
+	    	<form action="/product/search" class="form-inline">
+	    		<input type="text" placeholder="name" name="name">
+	    		<input type="text" placeholder="category" names="category">          
 			    <input type="submit" value="Submit">
 			  </form>
     		<table>

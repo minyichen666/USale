@@ -162,6 +162,6 @@ public class UserController {
 		}catch(Exception e) {
 			model.addAttribute("error", e.toString());
 		}
-		return "item_listing";
+		return "redirect:/product/search";
 	}
 }
