@@ -63,11 +63,11 @@
 		}
 
 
-
+<%@ include file = "template.css" %>
 	</style>
 </head>
 <body>
-
+<%@ include file = "navbar.jsp" %>
   <div id="background-text">
     <h1>USale.</h1>
   </div>

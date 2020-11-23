@@ -64,37 +64,12 @@
 					font-size: 10em;
 				}
 		}
-
+<%@ include file = "template.css" %>
 
 	</style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg">
-	  <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
-      <span class="navbar-toggler-icon"> <p class="nav-brand-icon">   USale.</p></span>
-	  </button>
-
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-auto container">
-	      <li class="nav-item col-lg-2 col-md-3 text-left">
-	        <a class="nav-link" href="">HOME</a>
-	      </li>
-	      <li class="nav-item col-lg-2 col-md-3 text-left">
-	        <a class="nav-link" href="">ABOUT US</a>
-	      </li>
-	      <li class="d-none d-lg-block col-lg-4 col-md-0 col-sm-0 col-xs-0 nav-brand text-center">
-	        <a class="nav-link " href="">USale.</a>
-	      </li>
-        <li class="nav-item col-lg-1 col-md-3 text-right">
-	        <a class="nav-link active" href="my_account.html">ACCOUNT</a>
-	      </li>
-        <li class="nav-item col-lg-3 col-md-3 text-right">
-	        <a class="nav-link" href="item_management.html">ITEM MANAGEMENT</a>
-	      </li>
-	    </ul>
-	  </div>
-	</nav>
+	<%@ include file = "navbar.jsp" %>
 
   <div id="background-text">
     <h1>USale.</h1>
@@ -143,7 +118,7 @@
 		    		</h5>
 
     				<br></br>
-    				<a class="btn btn-primary mx-auto" href="edit_my_account.html" role="button">Edit Account Information</a>
+    				<a class="btn btn-primary mx-auto" href="update" role="button">Edit Account Information</a>
     			</div>
 
     			<div class = "picture col-5 text-left">

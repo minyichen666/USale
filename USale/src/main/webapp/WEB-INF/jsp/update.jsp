@@ -61,36 +61,11 @@
 				}
 		}
 
-
+<%@ include file = "template.css" %>
 	</style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg">
-	  <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
-      <span class="navbar-toggler-icon"> <p class="nav-brand-icon">   USale.</p></span>
-	  </button>
-
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-auto container">
-	      <li class="nav-item col-lg-2 col-md-3 text-left">
-	        <a class="nav-link" href="">HOME</a>
-	      </li>
-	      <li class="nav-item col-lg-2 col-md-3 text-left">
-	        <a class="nav-link" href="">ABOUT US</a>
-	      </li>
-	      <li class="d-none d-lg-block col-lg-4 col-md-0 col-sm-0 col-xs-0 nav-brand text-center">
-	        <a class="nav-link " href="">USale.</a>
-	      </li>
-        <li class="nav-item active col-lg-1 col-md-3 text-right">
-	        <a class="nav-link" href="my_account.html">ACCOUNT</a>
-	      </li>
-        <li class="nav-item col-lg-3 col-md-3 text-right">
-	        <a class="nav-link" href="item_management.html">ITEM MANAGEMENT</a>
-	      </li>
-	    </ul>
-	  </div>
-	</nav>
+	<%@ include file = "navbar.jsp" %>
 
   <div id="background-text">
     <h1>USale.</h1>
@@ -119,7 +94,7 @@
 	    				
 
 					          <div class="input-group mb-4">
-					          		<h8>name:‚Ç¨‚Äù</h8>
+					          		<!-- <h8>name: </h8> -->
 					            	<form:input path="userName" type="text" placeholder="name..." aria-describedby="button-addon5" class="form-control bar"/>
 					           </div>
 					            
@@ -128,20 +103,20 @@
 	    				<br>
 	    				
 	    						<div class="input-group mb-4">
-	    							<h8>phone:‚Ç¨‚Äù</h8>
+	    							<!-- <h8>phone: Äù</h8> -->
 					           		 <form:input path="phoneNumber" type="text" placeholder="phone..." aria-describedby="button-addon5" class="form-control bar"/>
 					            </div>
 	    				<br>
 	    				<br>
 	    				
 	    						<div class="input-group mb-4">
-	    							<h8>address:‚Ç¨‚Äù</h8>
+	    							<!-- <h8>address:Äù </h8> -->
 					             <form:input path="address" type="text" placeholder="address..." aria-describedby="button-addon5" class="form-control bar"/>
 
 	    						</div>
 	    				<br>
 	    				<br>	
-	    						<form:button class="btn btn-info my-4 btn-primary mx-auto text-center" type="submit">Edit Account Information</form:button>
+	    						<form:button class="btn btn-info my-4 btn-primary mx-auto text-center" type="submit">yes.</form:button>
 					       </form:form>
 
     				<br></br>
