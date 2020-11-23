@@ -113,11 +113,14 @@ public class UserController {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/list-product", method = RequestMethod.GET)
+	@RequestMapping(value = "/my-products", method = RequestMethod.GET)
 	public String listProduct(Model model) {
-		List<Product> productList = productService.listProduct(session.getUser().getId());
-		model.addAttribute("productList", productList);
-		return "item_listing";
+		if (session.getUser() != null) {
+			List<Product> productList = productService.listProduct(session.getUser().getId());
+			model.addAttribute("productList", productList);
+			return "my-products";
+		}
+		return "login";
 	}
 	
 	@RequestMapping(value = "/update-product", method = RequestMethod.GET)
@@ -130,7 +133,7 @@ public class UserController {
 	@RequestMapping(value = "/update-product", method = RequestMethod.PUT)
 	public String updateProduct(@ModelAttribute("product") Product product) {
 			productService.updateProduct(product);
-			return "list-product";
+			return "my-products";
 	}
 	
 	@RequestMapping(value = "create-product", method = RequestMethod.GET)
@@ -143,13 +146,13 @@ public class UserController {
 	@RequestMapping(value = "create-product", method = RequestMethod.POST)
 	public String addProduct(@ModelAttribute("product") Product product) {
 			 productService.createProduct(product);
-			 return "list-product";
+			 return "my-products";
 	}
 	
 	@RequestMapping(value = "delete-product", method = RequestMethod.DELETE)
 	public String deleteProduct(@RequestParam(name = "id", required=true) int id) {
 			productService.deleteProduct(id);
-			return "list-product";
+			return "my-products";
 	}
 	
 	@RequestMapping(value = "/buy-product", method = RequestMethod.GET)
