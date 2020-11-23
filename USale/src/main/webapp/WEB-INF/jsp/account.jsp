@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -100,6 +100,18 @@
     <h1>USale.</h1>
   </div>
 
+		<style>
+			<%@ include file = "template.css" %>
+			<%@ include file = "style.css" %>
+			
+		</style>
+	</head>
+	<body>
+		<%@ include file = "navbar.jsp" %>
+		<div id="background-text">
+			<h1>USale.</h1>
+		</div>
+		
 	<div class="container">
 		<div class="row">
 			<hr class = "placeholder col-12">
@@ -145,7 +157,8 @@
 
 	</div>
 	</div> <!-- .container -->
-
+	<%@ include file = "footer.jsp" %>
+<!-- 
 
 	<footer class="page-footer font-small blue">
 
@@ -170,4 +183,4 @@
 	</script>
 
 </body>
-</html>
+</html> -->
