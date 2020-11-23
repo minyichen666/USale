@@ -84,7 +84,7 @@
 	<div class="container">
 		<div class="row">
 			<hr class = "placeholder col-12">
-      <h2 class="col-12 text-center"><br></br>Available Products</h2>
+      <h2 class="col-12 text-center"><br></br>AVAILABLE ITEMS</h2>
     		<h5 class = "list col-12"><hr></h5>
     		<div class = "tasks col-7 text-center" id="info">
 	    	<form action="/product/search" class="form-inline">
