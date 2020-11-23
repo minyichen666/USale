@@ -7,6 +7,6 @@ import com.L.USale.entity.User;
 @Service
 public interface AsyncTransaction {
 	
-	public boolean buyProduct(int userId, int productId);
+	public void buyProduct(int userId, int productId) throws InterruptedException, Exception;
 	
 }

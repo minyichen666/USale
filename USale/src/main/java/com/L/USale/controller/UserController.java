@@ -106,11 +106,8 @@ public class UserController {
 	
 	@RequestMapping(value = "/account", method = RequestMethod.GET)
 	public String displayInfo(Model model) {
-		if (session.getUser() != null) {
-			model.addAttribute("Info", session.getUser());
-			return "account";
-		}
-		return "login";
+		model.addAttribute("Info", session.getUser());
+		return "account";
 	}
 	
 	@RequestMapping(value = "/list-product", method = RequestMethod.GET)
@@ -154,13 +151,14 @@ public class UserController {
 	
 	@RequestMapping(value = "/buy-product", method = RequestMethod.GET)
 	public String buyProduct(@RequestParam(name = "id", required=true) int id, Model model) {
-		boolean bought = async.buyProduct(session.getUser().getId(), id);
-		if (bought == false) {
-			model.addAttribute("message", "Purchase failed! Check your balance.");
+		try {
+			async.buyProduct(session.getUser().getId(), id);
+			model.addAttribute("message", "transaction successed");
+		}catch(InterruptedException e) {
+			model.addAttribute("error", "transaction failed");
+		}catch(Exception e) {
+			model.addAttribute("error", e.toString());
 		}
-		else {
-			model.addAttribute("message", "Purchase successful!");
-		}
-		return "search";
+		return "item_listing";
 	}
 }

@@ -21,7 +21,7 @@ public class ProductController {
 	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String listProduct(@RequestParam(name = "name", required=false) String name, @RequestParam(name = "category", required=false) String category, Model model) {
-		List<Product> products = productService.searchProduct(name, category);
+		List<Product> products = productService.searchProduct(name , category);
 		model.addAttribute("products", products);
 		return "item_listing";
 	}

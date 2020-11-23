@@ -84,10 +84,10 @@
 	        <a class="nav-link " href="">USale.</a>
 	      </li>
         <li class="nav-item col-lg-1 col-md-3 text-right">
-	        <a class="nav-link" href="my_account.html">ACCOUNT</a>
+	        <a class="nav-link" href="/user/account">ACCOUNT</a>
 	      </li>
         <li class="nav-item col-lg-3 col-md-3 text-right">
-	        <a class="nav-link" href="item_management.html">ITEM MANAGEMENT</a>
+	        <a class="nav-link" href="">ITEM MANAGEMENT</a>
 	      </li>
 	    </ul>
 	  </div>
@@ -113,7 +113,7 @@
 				      <td>${product.category}</td>
 				      <td>${product.descr}</td>
 				      <td>${product.price}</td>
-				      <td><a class="btn btn-primary mx-auto" href="log_availability.html" role="button">Buy This Item</a></td>
+				      <td><a class="btn btn-primary mx-auto" href="/user/buy-product?id=${product.id}" role="button">Buy This Item</a></td>
 				     </tr>
 				 </c:forEach>
   			</tbody>
