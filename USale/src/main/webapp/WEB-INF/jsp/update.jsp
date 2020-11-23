@@ -16,6 +16,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>USale.</title>
 	<style>
+    
+    html{
+    	overflow: scroll;
+    }
     h1{
       width: 100%;
       height: 100%;
@@ -89,35 +93,42 @@
     					<div class="container searchbar">
     									
     					
-    						<form:form action="/user/update" method="post" modelAttribute="user" id="form">
-
-	    				
-
-					          <div class="input-group mb-4">
-					          		<!-- <h8>name: </h8> -->
-					            	<form:input path="userName" type="text" placeholder="name..." aria-describedby="button-addon5" class="form-control bar"/>
-					           </div>
-					            
-							
-	    				<br>
-	    				<br>
-	    				
-	    						<div class="input-group mb-4">
-	    							<!-- <h8>phone: €</h8> -->
-					           		 <form:input path="phoneNumber" type="text" placeholder="phone..." aria-describedby="button-addon5" class="form-control bar"/>
-					            </div>
-	    				<br>
-	    				<br>
-	    				
-	    						<div class="input-group mb-4">
-	    							<!-- <h8>address:€ </h8> -->
-					             <form:input path="address" type="text" placeholder="address..." aria-describedby="button-addon5" class="form-control bar"/>
-
-	    						</div>
-	    				<br>
-	    				<br>	
-	    						<form:button class="btn btn-info my-4 btn-primary mx-auto text-center" type="submit">yes.</form:button>
-					       </form:form>
+    					<form:form action="/user/account" method="POST" modelAttribute="user" id="form">
+         
+			
+			                    <div class="input-group mb-4">
+			                      <h8>name: </h8>
+			                       <form:input path="userName" type="text" aria-describedby="button-addon5" class="form-control bar" value="updated"/>${Info.userName}
+			                     </div>
+			              <br>
+			              <br>
+			                <div class="input-group mb-4">
+			                 <h8>phone: </h8>
+			                        <form:input path="phoneNumber" type="text" aria-describedby="button-addon5" class="form-control bar" value="666"/>${Info.phoneNumber}
+			                      </div>
+			              <br>
+			              <br>
+			                <div class="input-group mb-4">
+			                 <h8>address: </h8>
+			                       <form:input path="address" type="text" aria-describedby="button-addon5" class="form-control bar" value="666"/>${Info.address}
+			                </div>
+			              <br>
+			              <br> 
+			                <div class="input-group mb-4">
+			                 <h8>password: </h8>
+			                 <form:input path="password" type="password" aria-describedby="button-addon5" class="form-control bar" value = "666"/>${Info.password}
+			             </div>
+			           <br>
+			           <br>
+			             <div class="input-group mb-4">
+			                 <h8>balance: €</h8>
+			                 <form:input path="balance" type="text" aria-describedby="button-addon5" class="form-control bar" value="666"/>${Info.address}
+			                </div>
+			           <br>
+			           <br> 
+			              
+			                <form:button class="btn btn-info my-4 btn-primary mx-auto text-center" type="submit">Edit Account Information</form:button>
+			      </form:form>
 
     				<br></br>
     				
