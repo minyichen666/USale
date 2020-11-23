@@ -9,7 +9,7 @@
 				<a class="nav-link" href="/user/logout">LOG OUT</a>
 			</li>
 			<li class="nav-item col-lg-2 col-md-3 text-left">
-				<a class="nav-link" href="">ABOUT US</a>
+				<a class="nav-link" href="/user/aboutUs">ABOUT US</a>
 			</li>
 			<li class="d-none d-lg-block col-lg-4 col-md-0 col-sm-0 col-xs-0 nav-brand text-center">
 				<a class="nav-link " href="/product/search">USale.</a>

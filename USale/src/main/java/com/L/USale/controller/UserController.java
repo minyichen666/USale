@@ -48,6 +48,11 @@ public class UserController {
     
     public static boolean authenticated = false;
 	
+    @RequestMapping (value = "/aboutUs", method = RequestMethod.GET)
+    public String aboutUs(Model model) {
+    	return "aboutUs";
+    }
+    
 	@RequestMapping (value = "/login", method = RequestMethod.GET)
 	public String searchUser(Model model) {
 		UserLogin userLogin = new UserLogin();
