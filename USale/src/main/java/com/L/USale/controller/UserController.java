@@ -67,6 +67,13 @@ public class UserController {
 		return "login";
 	}
 	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(Model model) {
+		session = null;
+		authenticated = false;
+		return "redirect:/user/login";
+	}
+	
 	@RequestMapping(value="/update", method = RequestMethod.GET)
 	public String updateUser(Model model) {
 		User user = new User();
@@ -150,7 +157,7 @@ public class UserController {
 	@RequestMapping(value = "delete-product", method = RequestMethod.GET)
 	public String deleteProduct(@RequestParam(name = "id", required=true) int id) {
 			productService.deleteProduct(id);
-			return "my-products";
+			return "redirect:/user/my-products";
 	}
 	
 	@RequestMapping(value = "/buy-product", method = RequestMethod.GET)

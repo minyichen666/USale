@@ -6,7 +6,7 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto container">
 			<li class="nav-item col-lg-2 col-md-3 text-left">
-				<a class="nav-link" href="/product/search">HOME</a>
+				<a class="nav-link" href="/user/logout">LOG OUT</a>
 			</li>
 			<li class="nav-item col-lg-2 col-md-3 text-left">
 				<a class="nav-link" href="">ABOUT US</a>
