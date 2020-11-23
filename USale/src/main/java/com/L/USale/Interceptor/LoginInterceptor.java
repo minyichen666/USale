@@ -12,9 +12,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 	@Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
 		String uri = httpServletRequest.getRequestURI();
-		System.out.println(uri);
-		System.out.println(UserController.authenticated == false && !uri.equals("/user/login"));
-		if(UserController.authenticated == false && !uri.equals("/user/login")) {
+		if(!UserController.authenticated && !uri.equals("/user/login")) {
         	httpServletResponse.sendRedirect("/user/login");
             return false;
         }

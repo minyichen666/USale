@@ -17,25 +17,20 @@ public class AsyncTransactionImpl implements AsyncTransaction{
 	UserMapper userMapper;
 	
 	
-	@Async
-	//transaction
+	@Async("threadPoolTaskExecutor")
 	public boolean buyProduct(int userId, int productId) throws Exception{
 		Product product = productMapper.selectByPrimaryKey(productId);
 		User buyer = userMapper.selectByPrimaryKey(userId);
+		User seller = userMapper.selectByPrimaryKey(product.getId());
 		double balance = buyer.getBalance();
 		double price = product.getPrice();
 		if(balance >= price) {
-			buyer.setBalance(balance - price);
-			
-			//delete product
+			buyer.setBalance(buyer.getBalance() - price);
+			seller.setBalance(seller.getBalance() + price);
+			productMapper.deleteByPrimaryKey(product.getId());
 			return true;
 		}else {
 			throw new Exception("Not enough money");
 		}
-	}
-	
-	@Async
-	public boolean sellProduct(int userId, int productId) throws Exception{
-		return true;
 	}
 }
