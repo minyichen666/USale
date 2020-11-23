@@ -17,7 +17,7 @@
 						
 						<form:input path="password" type="password" class="form-control" placeholder="password..." id = "input-bar" value = ""/>
 					</p>
-					<form:button type="submit" class = "text-center" id = "title"> <h2>yes.</h2> </form:button>
+					<form:button type="submit" class = "text-center col-12" id = "title"> <h2>yes.</h2> </form:button>
 				</form:form>
 <%-- 			    
 	    <div th:if="${param.error}"> hhh

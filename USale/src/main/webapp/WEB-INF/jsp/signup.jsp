@@ -47,13 +47,15 @@
 						<!--<form:input path="id" type="text" value="6"/>-->
 						
 					</p>
-					<form:button type="submit" class = "text-center" id = "title"> <h2>yes.</h2> </form:button>
+					<a class="text-center col-12" href="/user/signup">${message}<br></a>
+					<form:button type="submit" class = "text-center col-12" id = "title"> <h2>yes.</h2> </form:button>
 				</form:form>
 				
-				<%-- <div class="starter-template">
-		            <h3>Message: ${message}</h3>
-		        </div> --%>
-<%-- <%-- 			    hhh
+<!-- 				<div class="starter-template"> -->
+				
+		           <%--  <h3>Message: ${message}</h3> --%>
+		       <!--  --> </div>
+<%-- <%-- 			   
 	    <div th:if="${param.error}">
 	            Invalid username and password.
 	        </div>
