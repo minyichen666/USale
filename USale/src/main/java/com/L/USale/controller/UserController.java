@@ -20,6 +20,7 @@ import com.L.USale.entity.User;
 import com.L.USale.entity.UserLogin;
 import com.L.USale.entity.UserLoginInfo;
 import com.L.USale.model.UserModel;
+import com.L.USale.service.AsyncTransaction;
 import com.L.USale.service.ProductService;
 import com.L.USale.service.UserService;
 import com.L.USale.validator.UserValidator;
@@ -40,6 +41,9 @@ public class UserController {
     
     @Autowired
     UserLoginInfo session;
+    
+    @Autowired
+    AsyncTransaction async;
     
     public static boolean authenticated = false;
 
@@ -156,5 +160,17 @@ public class UserController {
 	public String deleteProduct(@RequestParam(name = "id", required=true) int id) {
 			productService.deleteProduct(id);
 			return "list-product";
+	}
+	
+	@RequestMapping(value = "/buy-product", method = RequestMethod.GET)
+	public String buyProduct(@RequestParam(name = "id", required=true) int id, Model model) {
+		boolean bought = async.buyProduct(session.getUser().getId(), id);
+		if (bought == false) {
+			model.addAttribute("message", "Purchase failed! Check your balance.");
+		}
+		else {
+			model.addAttribute("message", "Purchase successful!");
+		}
+		return "search";
 	}
 }
