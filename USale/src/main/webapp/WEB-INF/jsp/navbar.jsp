@@ -18,7 +18,7 @@
 				<a class="nav-link active" href="/user/account">ACCOUNT</a>
 			</li>
 			<li class="nav-item col-lg-3 col-md-3 text-right">
-				<a class="nav-link" href="/user/my-product">ITEM MANAGEMENT</a>
+				<a class="nav-link" href="/user/my-products">ITEM MANAGEMENT</a>
 			</li>
 		</ul>
 	</div>
