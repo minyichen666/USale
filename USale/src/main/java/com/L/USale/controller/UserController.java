@@ -56,13 +56,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String searchUser(@ModelAttribute("userLogin") UserLogin userLogin) {
+	public String searchUser(@ModelAttribute("userLogin") UserLogin userLogin, Model model) {
 		User user = userService.searchUser(userLogin.getUserName(), userLogin.getPassword());
 		if(null != user) {
 			session.setUser(new UserModel(user));
 			authenticated = true;
 			return "redirect:/product/search";
 		}
+		model.addAttribute("error", "login failed");
 		return "login";
 	}
 	
