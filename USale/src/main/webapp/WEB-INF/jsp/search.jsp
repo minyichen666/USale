@@ -275,8 +275,8 @@
 	<br></br>
 	<br></br>
 
-
-	<footer class="page-footer font-small blue">
+<%@ include file = "footer.jsp" %>
+<!-- 	<footer class="page-footer font-small blue">
 
 	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
 	     <a id = "footlink" href=""> usale.com</a>
@@ -299,4 +299,4 @@
 	</script>
 
 </body>
-</html>
+</html> -->
