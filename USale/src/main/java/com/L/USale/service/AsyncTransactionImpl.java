@@ -17,14 +17,12 @@ public class AsyncTransactionImpl implements AsyncTransaction{
 	UserMapper userMapper;
 	
 	
-	@Async("threadPoolTaskExecutor")
-	public void buyProduct (int userId, int productId) throws InterruptedException, Exception{
+	public synchronized void buyProduct (int userId, int productId) throws InterruptedException, Exception{
 		Product product = productMapper.selectByPrimaryKey(productId);
 		User buyer = userMapper.selectByPrimaryKey(userId);
 		User seller = userMapper.selectByPrimaryKey(product.getId());
 		double balance = buyer.getBalance();
 		double price = product.getPrice();
-		System.out.println(buyer.getBalance() + " " + product.getPrice() + " " + seller.getBalance());
 		if(balance >= price) {
 			buyer.setBalance(buyer.getBalance() - price);
 			seller.setBalance(seller.getBalance() + price);
