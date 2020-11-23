@@ -114,18 +114,19 @@
       <br><br> -->
     		<h5 class = "list col-12"><hr></h5>
     			
+    		
     			
     			<div class = "tasks col-7 text-left">
 
 	    			<h5 class = "list">
 	    				<div class = "items">
-		    				<h8>name: ${user.getName()}</h8>
+		    				<h8>name: ${Info.userName}</h8>
 		    				<br>
 		    				<br>
-		    				<h8>phone: ${user.getPhoneNumber()}</h8>
+		    				<h8>phone: ${Info.phoneNumber}</h8>
 		    				<br>
 		    				<br>
-		    				<h8>location: ${user.getAddress()}</h8>
+		    				<h8>location: ${Info.address}</h8>
 		    			</div>
 		    		</h5>
 
@@ -148,7 +149,7 @@
 
 	<footer class="page-footer font-small blue">
 
-	  <div class="footer-copyright text-center py-3">Â© 2020 Copyright:
+	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
 	     <a id = "footlink" href=""> usale.com</a>
 	  </div>
 
