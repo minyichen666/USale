@@ -89,7 +89,7 @@
     					<div class="container searchbar">
     									
     					
-    						<form:form action="/user/update" method="post" modelAttribute="user" id="form">
+    						<form:form action="/user/update?id=${user.id}" method="post" modelAttribute="user" id="form">
 
 	    				
 

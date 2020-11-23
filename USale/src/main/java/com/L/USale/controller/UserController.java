@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -68,12 +69,14 @@ public class UserController {
 	@RequestMapping(value="/update", method = RequestMethod.GET)
 	public String updateUser(Model model) {
 		User user = new User();
-		model.addAttribute("user", user);
+		model.addAttribute("user", session.getUser());
 		return "update";
 	}	
 	
-	@RequestMapping(value = "/update", method = RequestMethod.PUT)
-	public String updateUser(@ModelAttribute("user") User user) {			
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String updateUser(@ModelAttribute("user") User user, @RequestParam(name = "id") int id) {
+		user.setId(id);
+		System.out.println(user);
 		userService.updateUser(user);
 		return "account";
 	}
@@ -131,6 +134,7 @@ public class UserController {
 	public String addProduct(Model model) {
 		Product product = new Product();
 		model.addAttribute("product", product);
+		model.addAttribute("user", session.getUser());
 		return "create-product";
 	}
 	
@@ -156,6 +160,8 @@ public class UserController {
 		}catch(Exception e) {
 			model.addAttribute("error", e.toString());
 		}
-		return "redirect:/product/search";
+		List<Product> products = productService.searchProduct(null , null);
+		model.addAttribute("products", products);
+		return "item_listing";
 	}
 }

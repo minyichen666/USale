@@ -83,4 +83,9 @@ public class User {
     public void setBalance(Double balance) {
         this.balance = balance;
     }
+    @Override
+    public String toString() {
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", phoneNumber=" + phoneNumber
+				+ ", address=" + address + ", balance=" + balance + "]";
+	}
 }
