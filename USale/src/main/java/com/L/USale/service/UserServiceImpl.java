@@ -50,4 +50,9 @@ public class UserServiceImpl implements UserService {
 		criteria.andUserNameEqualTo(userName);
 		return userMapper.selectByExample(example);
 	}
+	
+	@Override
+	public User findById(int id) {
+		return userMapper.selectByPrimaryKey(id);
+	}
 }
