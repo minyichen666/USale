@@ -23,7 +23,7 @@ public class ProductController {
 	public String listProduct(@RequestParam(name = "name", required=false) String name, @RequestParam(name = "category", required=false) String category, Model model) {
 		List<Product> products = productService.searchProduct(name , category);
 		model.addAttribute("products", products);
-		return "item_listing";
+		return "search";
 	}
 	
 	
