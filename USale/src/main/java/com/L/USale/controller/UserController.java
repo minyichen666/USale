@@ -74,11 +74,12 @@ public class UserController {
 	}	
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String updateUser(@ModelAttribute("user") User user, @RequestParam(name = "id") int id) {
+	public String updateUser(@ModelAttribute("user") User user, @RequestParam(name = "id") int id, Model model) {
 		user.setId(id);
 		System.out.println(user);
 		userService.updateUser(user);
-		return "account";
+		//model.addAttribute("user", userService.findById(user.getId()));
+		return "redirect:/user/account";
 	}
 	
 	@RequestMapping(value="/signup", method = RequestMethod.GET)
@@ -103,7 +104,8 @@ public class UserController {
 	
 	@RequestMapping(value = "/account", method = RequestMethod.GET)
 	public String displayInfo(Model model) {
-		model.addAttribute("Info", session.getUser());
+		User user = userService.findById(session.getUser().getId());
+		model.addAttribute("Info", user);
 		return "account";
 	}
 	
