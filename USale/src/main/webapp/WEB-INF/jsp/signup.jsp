@@ -1,9 +1,21 @@
 <%@ include file = "header_no_navbar.jsp" %>
+
+		<style>
+			.hidden{
+				display: none;
+			}
+			#form{
+				margin: auto;
+			}
+		</style>
 		<div class="container">
 			<div class="row">
 				<hr class = "placeholder col-12">
 				<hr class = "placeholder col-12">
 				<div class = "text-center col-12" id = "title"> <h2>sign up.</h2> </div>
+				<a class="text-center col-12" href="/user/login">click here to log in.</a>
+				<a class="text-center col-12" href="/product/search">click here to continue as guest.</a>
+				<div class = "text-center col-12" id = "title"> <p><p/> </div>
 				<p>${error}</p>
 				
 			<%-- 	<form:form action="/user/login" method="post" modelAttribute="userLogin">
@@ -29,18 +41,18 @@
 					<p>
 						
 						<form:input path="password" type="password" class="form-control" placeholder="password..." id = "input-bar" value = ""/>
-						<form:input path="phoneNumber" type="text" value="123"/>
-						<form:input path="address" type="text" value="123"/>
-						<form:input path="balance" type="text" value="0"/>
+						<form:input path="phoneNumber" type="text" class="hidden" value="0000000000"/>
+						<form:input path="address" type="text" class="hidden" value="placeholder address, please update"/>
+						<form:input path="balance" type="text" class="hidden" value="0"/>
 						<!--<form:input path="id" type="text" value="6"/>-->
 						
 					</p>
 					<form:button type="submit" class = "text-center" id = "title"> <h2>yes.</h2> </form:button>
 				</form:form>
 				
-				<div class="starter-template">
+				<%-- <div class="starter-template">
 		            <h3>Message: ${message}</h3>
-		        </div>
+		        </div> --%>
 <%-- <%-- 			    
 	    <div th:if="${param.error}">
 	            Invalid username and password.

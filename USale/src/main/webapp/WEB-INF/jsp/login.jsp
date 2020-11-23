@@ -5,6 +5,8 @@
 				<hr class = "placeholder col-12">
 				<div class = "text-center col-12" id = "title"> <h2>log in.</h2> </div>
 				<a class="text-center col-12" href="/user/signup">click here to sign up.</a>
+				<a class="text-center col-12" href="/product/search">click here to continue as guest.</a>
+				<div class = "text-center col-12" id = "title"> <p><p/> </div>
 				<p>${error}</p>
 				<form:form action="/user/login" method="post" modelAttribute="userLogin" id="form">
 				
