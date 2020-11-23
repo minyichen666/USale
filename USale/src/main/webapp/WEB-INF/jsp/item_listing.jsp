@@ -85,9 +85,9 @@
     		<table>
     		<tbody>
     			<c:forEach items="${products}" var="product" >
-		   			<div class = "picture col-6 text-left">
+		   			<!-- <div class = "picture col-6 text-left">
 		   				<img style="max-height: 100%; max-width: 100%;" src="1.png" alt="IMAGE HERE">
-		   			</div>
+		   			</div> -->
 				     <tr>
 				      <td>${product.name}</td>
 				      <td>${product.category}</td>

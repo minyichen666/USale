@@ -121,9 +121,9 @@
     				<a class="btn btn-primary mx-auto" href="update" role="button">Edit Account Information</a>
     			</div>
 
-    			<div class = "picture col-5 text-left">
+    			<!-- <div class = "picture col-5 text-left">
     				<img style="max-height: 100%; max-width: 100%" src="2.png" alt="IMAGE HERE">
-    			</div>
+    			</div> -->
 
   		</div>
   		
