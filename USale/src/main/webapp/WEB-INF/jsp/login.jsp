@@ -20,7 +20,7 @@
 					<form:button type="submit" class = "text-center" id = "title"> <h2>yes.</h2> </form:button>
 				</form:form>
 <%-- 			    
-	    <div th:if="${param.error}">
+	    <div th:if="${param.error}"> hhh
 	            Invalid username and password.
 	        </div>
 	        <div th:if="${param.logout}">
