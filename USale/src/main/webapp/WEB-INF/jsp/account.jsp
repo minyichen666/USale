@@ -64,7 +64,7 @@
 					font-size: 10em;
 				}
 		}
-
+<%@ include file = "template.css" %>
 
 	</style>
 </head>
@@ -118,7 +118,7 @@
 		    		</h5>
 
     				<br></br>
-    				<a class="btn btn-primary mx-auto" href="edit_my_account.html" role="button">Edit Account Information</a>
+    				<a class="btn btn-primary mx-auto" href="update" role="button">Edit Account Information</a>
     			</div>
 
     			<div class = "picture col-5 text-left">
