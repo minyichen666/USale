@@ -46,12 +46,6 @@ public class UserController {
     AsyncTransaction async;
     
     public static boolean authenticated = false;
-
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String welcome(ModelMap model) {
-        model.put("message", "hello");
-        return "welcome";
-    }
 	
 	@RequestMapping (value = "/login", method = RequestMethod.GET)
 	public String searchUser(Model model) {
@@ -65,9 +59,8 @@ public class UserController {
 		User user = userService.searchUser(userLogin.getUserName(), userLogin.getPassword());
 		if(null != user) {
 			session.setUser(new UserModel(user));
-			System.out.println(session.getUser().getUserName());
 			authenticated = true;
-			return "welcome";
+			return "redirect:/product/search";
 		}
 		return "login";
 	}
@@ -122,12 +115,9 @@ public class UserController {
 	
 	@RequestMapping(value = "/list-product", method = RequestMethod.GET)
 	public String listProduct(Model model) {
-		if (session.getUser() != null) {
-			List<Product> productList = productService.listProduct(session.getUser().getId());
-			model.addAttribute("productList", productList);
-			return "list-product";
-		}
-		return "login";
+		List<Product> productList = productService.listProduct(session.getUser().getId());
+		model.addAttribute("productList", productList);
+		return "item_listing";
 	}
 	
 	@RequestMapping(value = "/update-product", method = RequestMethod.GET)
