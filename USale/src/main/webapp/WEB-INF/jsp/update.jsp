@@ -100,26 +100,36 @@
 					            
 							
 	    				<br>
-	    				<br>
 	    				
-	    						<div class="input-group mb-4">
+	    						<%-- <div class="input-group mb-4">
 	    							<!-- <h8>phone: €</h8> -->
 					           		 <form:input path="phoneNumber" type="text" placeholder="phone..." aria-describedby="button-addon5" class="form-control bar"/>
 					            </div>
-	    				<br>
-	    				<br>
+	    				<br> --%>
 	    				
 	    						<div class="input-group mb-4">
 	    							<!-- <h8>address:€ </h8> -->
 					             <form:input path="address" type="text" placeholder="address..." aria-describedby="button-addon5" class="form-control bar"/>
 
 	    						</div>
-	    				<br>
 	    				<br>	
+	    						<div class="input-group mb-4">
+	    							<!-- <h8>address:€ </h8> -->
+					             <form:input path="password" type="text" placeholder="password..." aria-describedby="button-addon5" class="form-control bar"/>
+
+	    						</div>
+	    				<br>	
+	    						<div class="input-group mb-4">
+	    							<!-- <h8>address:€ </h8> -->
+					             <form:input path="balance" type="text" placeholder="balance..." aria-describedby="button-addon5" class="form-control bar"/>
+
+	    						</div>
+	    				<br>	
+	    						
 	    						<form:button class="btn btn-info my-4 btn-primary mx-auto text-center" type="submit">yes.</form:button>
 					       </form:form>
 
-    				<br></br>
+    				<!-- <br></br> -->
     				
 
     			</div>

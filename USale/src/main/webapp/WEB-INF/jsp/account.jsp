@@ -119,6 +119,9 @@
 		    				<br>
 		    				<br>
 		    				<h8>location: ${Info.address}</h8>
+		    				<br>
+		    				<br>
+		    				<h8>balance: ${Info.balance}</h8>
 		    			</div>
 		    		</h5>
 
