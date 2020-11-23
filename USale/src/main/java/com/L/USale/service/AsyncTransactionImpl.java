@@ -24,10 +24,13 @@ public class AsyncTransactionImpl implements AsyncTransaction{
 		User seller = userMapper.selectByPrimaryKey(product.getId());
 		double balance = buyer.getBalance();
 		double price = product.getPrice();
+		System.out.println(buyer.getBalance() + " " + product.getPrice() + " " + seller.getBalance());
 		if(balance >= price) {
 			buyer.setBalance(buyer.getBalance() - price);
 			seller.setBalance(seller.getBalance() + price);
 			productMapper.deleteByPrimaryKey(product.getId());
+			userMapper.updateByPrimaryKey(buyer);
+			userMapper.updateByPrimaryKey(seller);
 		}else {
 			throw new Exception("Not enough money");
 		}

@@ -91,7 +91,7 @@ public class UserController {
 				if (userValidator.validate(user)) {
 					userService.createUser(user);
 					model.addAttribute("message", "Sign Up Successfully!");
-					return "login";
+					return "redirect:/login";
 				}
 				else {
 					model.addAttribute("message", "Username is taken. Try another one.");

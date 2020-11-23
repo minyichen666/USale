@@ -120,6 +120,9 @@
 				      <td>${product.price}</td>
 				      <td><a class="btn btn-primary mx-auto" href="/user/buy-product?id=${product.id}" role="button">Buy This Item</a></td>
 				     </tr>
+				     <c:if test="${error != null}">
+					 ${error}
+					</c:if>
 				 </c:forEach>
   			</tbody>
   			</table>
