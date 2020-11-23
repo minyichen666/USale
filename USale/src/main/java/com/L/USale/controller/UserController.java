@@ -87,20 +87,14 @@ public class UserController {
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String createUser(@ModelAttribute("user") User user, Model model) {
-			if (user.getId() != null) {
-				if (userValidator.validate(user)) {
-					userService.createUser(user);
-					model.addAttribute("message", "Sign Up Successfully!");
-					return "redirect:/login";
-				}
-				else {
-					model.addAttribute("message", "Username is taken. Try another one.");
-					return "signup";					
-				}
+			if (userValidator.validate(user)) {
+				userService.createUser(user);
+				model.addAttribute("message", "Sign Up Successfully!");
+				return "redirect:/login";
 			}
 			else {
-				model.addAttribute("message", "User signup failed! Check your form.");
-				return "signup";
+				model.addAttribute("message", "Username is taken. Try another one.");
+				return "signup";					
 			}
 	}
 	

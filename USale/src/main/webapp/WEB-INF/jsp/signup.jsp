@@ -32,7 +32,7 @@
 						<form:input path="phoneNumber" type="text" value="123"/>
 						<form:input path="address" type="text" value="123"/>
 						<form:input path="balance" type="text" value="0"/>
-						<form:input path="id" type="text" value="6"/>
+						<!--<form:input path="id" type="text" value="6"/>-->
 						
 					</p>
 					<form:button type="submit" class = "text-center" id = "title"> <h2>yes.</h2> </form:button>

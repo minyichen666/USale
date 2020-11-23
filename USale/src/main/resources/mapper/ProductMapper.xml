@@ -103,10 +103,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.L.USale.entity.Product">
-    insert into usale.product (id, category, name, 
+    insert into usale.product (category, name, 
       descr, price, user_id
       )
-    values (#{id,jdbcType=INTEGER}, #{category,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+    values (#{category,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{descr,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, #{userId,jdbcType=INTEGER}
       )
   </insert>

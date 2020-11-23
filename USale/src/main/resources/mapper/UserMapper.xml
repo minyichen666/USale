@@ -103,10 +103,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.L.USale.entity.User">
-    insert into usale.user (id, user_name, password, 
+    insert into usale.user (user_name, password, 
       phone_number, address, balance
       )
-    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{phoneNumber,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{balance,jdbcType=DOUBLE}
       )
   </insert>
