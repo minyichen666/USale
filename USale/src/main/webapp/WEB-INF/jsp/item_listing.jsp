@@ -56,12 +56,21 @@
     .container{
       font-family: Alata;
     }
-		@media(max-width: 767px){
-				h1{
-					font-size: 10em;
-				}
-		}
-
+	@media(max-width: 767px){
+			h1{
+				font-size: 10em;
+			}
+	}
+	#info{
+		margin:auto;
+	}
+	tr.spaceUnder>td {
+	  padding-bottom: 1em;
+	}
+	.padding-table-columns td
+	{
+	    padding:0 15px;
+	}
 	<%@ include file = "template.css" %>
 	</style>
 </head>
@@ -75,25 +84,30 @@
 	<div class="container">
 		<div class="row">
 			<hr class = "placeholder col-12">
-      <h2 class="col-12 text-center"><br></br>Art Piece #1</h2>
+      <h2 class="col-12 text-center"><br></br>Available Products</h2>
     		<h5 class = "list col-12"><hr></h5>
+    		<div class = "tasks col-7 text-center" id="info">
 	    	<form action="/product/search" class="form-inline">
 	    		<input type="text" placeholder="name" name="name">
 	    		<input type="text" placeholder="category" names="category">          
 			    <input type="submit" value="Submit">
-			  </form>
-    		<table>
+			</form>
+			</div>
+			<br></br>
+			<div class = "tasks col-7 text-center" id="info">
+    		<table style="color: #FFCC00;" className="padding-table-columns">
     		<tbody>
     			<c:forEach items="${products}" var="product" >
 		   			<!-- <div class = "picture col-6 text-left">
 		   				<img style="max-height: 100%; max-width: 100%;" src="1.png" alt="IMAGE HERE">
 		   			</div> -->
-				     <tr>
-				      <td>${product.name}</td>
+				     <tr class="spaceUnder">
+				      <td >${product.name}</td>
 				      <td>${product.category}</td>
 				      <td>${product.descr}</td>
 				      <td>${product.price}</td>
 				      <td><a class="btn btn-primary mx-auto" href="/user/buy-product?id=${product.id}" role="button">Buy This Item</a></td>
+				     	
 				     </tr>
 				     <c:if test="${error != null}">
 					 ${error}
@@ -101,6 +115,7 @@
 				 </c:forEach>
   			</tbody>
   			</table>
+  			</div>
       <br></br>
 
 

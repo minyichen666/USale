@@ -64,6 +64,10 @@
 					font-size: 10em;
 				}
 		}
+		
+		#info{
+			margin:auto;
+		}
 <%@ include file = "template.css" %>
 
 	</style>
@@ -78,6 +82,7 @@
 		<style>
 			<%@ include file = "template.css" %>
 			<%@ include file = "style.css" %>
+			
 			
 		</style>
 	</head>
@@ -103,7 +108,7 @@
     			
     		
     			
-    			<div class = "tasks col-7 text-left">
+    			<div class = "tasks col-7 text-center" id="info">
 
 	    			<h5 class = "list">
 	    				<div class = "items">
